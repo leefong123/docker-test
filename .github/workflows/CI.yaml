@@ -48,14 +48,14 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Run Trivy vulnerability scanner
-         uses: aquasecurity/trivy-action@master
-         with:
-           image-ref: 'ghcr.io/leefong123/docker-test:main'
-           format: 'table'
-           exit-code: '0'
-           ignore-unfixed: true
-           vuln-type: 'os,library'
-           severity: 'CRITICAL,HIGH'
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ghcr.io/leefong123/docker-test:main'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
 
       - name: Push Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
